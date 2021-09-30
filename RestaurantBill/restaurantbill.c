@@ -33,19 +33,19 @@ void main() {
     switch (choice) {
         case 0: //Salad
             price = 9.95;
-            printf("Salad\nBefore tax: $%f\nTax: $%f\n Tip: $%f\nTotal: $%f", price, price/tax, price/tip, price+(price/tax)+(price/tip));
+            printf("Salad\nBefore tax: $%.2f\nTax: $%.2f\n Tip: $%.2f\nTotal: $%.2f", price, price/tax, price/tip, price+(price/tax)+(price/tip));
             break;
         case 1: //Soup
             price = 4.55;
-            printf("Soup\nBefore tax: $%f\nTax: $%f\n Tip: $%f\nTotal: $%f", price, price/tax, price/tip, price+(price/tax)+(price/tip));
+            printf("Soup\nBefore tax: $%.2f\nTax: $%.2f\n Tip: $%.2f\nTotal: $%.2f", price, price/tax, price/tip, price+(price/tax)+(price/tip));
             break;
         case 2: //Sandwich
             price = 13.25;
-            printf("Sandwich\nBefore tax: $%f\nTax: $%f\n Tip: $%f\nTotal: $%f", price, price/tax, price/tip, price+(price/tax)+(price/tip));
+            printf("Sandwich\nBefore tax: $%.2f\nTax: $%.2f\n Tip: $%.2f\nTotal: $%.2f", price, price/tax, price/tip, price+(price/tax)+(price/tip));
             break;
         case 3: //Pizza
             price = 22.35;
-            printf("Pizza\nBefore tax: $%f\nTax: $%f\n Tip: $%f\nTotal: $%f", price, price/tax, price/tip, price+(price/tax)+(price/tip));
+            printf("Pizza\nBefore tax: $%.2f\nTax: $%.2f\n Tip: $%.2f\nTotal: $%.2f", price, price/tax, price/tip, price+(price/tax)+(price/tip));
             break;
     }
 }
