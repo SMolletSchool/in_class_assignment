@@ -37,3 +37,34 @@ end execution by returning out of main
 invalid option:
 say so, and prompt for an option again
 */
+
+#include <stdio.h>
+
+int numberGuessMax; //Define max number variable
+
+int main() {
+    char option;
+    numberGuessMax = 10;
+    do {
+        option = getchar();
+        if (option = '1') {
+            guessingGame();
+        }
+        else if (option != '2') {
+            setGuessMax();
+        }
+    }
+    while (option != '3');
+    return 0;
+}
+
+void guessingGame() {
+    return;
+}
+
+void setGuessMax() {
+    int newMax;;
+    scanf("%i", &newMax);
+    numberGuessMax = newMax;
+    return;
+}
