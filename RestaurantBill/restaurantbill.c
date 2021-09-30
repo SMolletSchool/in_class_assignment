@@ -10,4 +10,9 @@ Soup: $4.55
 Sandwich: $13.25
 Pizza: $22.35*/
 
-/*My plan: */
+/*My plan: 
+prompt for tax input, and tip input (percentages)
+pick between the four options with rand() (prefaced by srand((unsigned) time(&t)) for "truer" randomness)
+print the cost, tax amount, and tip amount
+print the total cost by doing the math in the print statement (no need to save the amount in a variable)
+*/
