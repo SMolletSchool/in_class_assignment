@@ -16,4 +16,24 @@ If option 3 is chosen thank the user for playing and end the game.
 Now create a new branch – call it save_user_max_number
 Can you save the users request for the max number where the program is able to remember it the next time it starts?*/
 
-/*My plan: */
+/*My plan:
+going to separate the three options into their own functions for less congested-looking code
+option 1:
+get the random number between 1 and [max number] (defaults to 10)
+start a while loop
+prompt for an input
+if the input is q, return out of the function
+check if the input equals the random number
+if it's lower or higher, tell the user, and restart the loop
+otherwise, the while loop will end, as the continue parameter is if the number is not equal to the random number
+return out
+option 2:
+prompt for a new max_value
+if it's invalid, say so, and prompt again
+save the new value in variable accessable by option 1
+return out
+option 3:
+end execution by returning out of main
+invalid option:
+say so, and prompt for an option again
+*/
