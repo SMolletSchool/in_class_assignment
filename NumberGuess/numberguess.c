@@ -44,7 +44,7 @@ say so, and prompt for an option again
 int main() {
     int numberGuessMax, option = 0; //switched to an int as I remembered that scanf exists
     FILE *pointer; //File input for max number
-    pointer = fopen("NumberGuess/savedvalue.data", "r+");
+    pointer = fopen("C:/Users/shymo/GIT_inclass/in_class_assignment/NumberGuess/savedvalue.data", "r+");
     char fileBuffer[10];
     fscanf(pointer, "%s", fileBuffer);
     numberGuessMax = atoi(fileBuffer);
@@ -80,7 +80,8 @@ int main() {
                 scanf("%i", &newMax);
                 if (newMax > 2 && newMax < INT_MAX) {
                     numberGuessMax = newMax;
-                    pointer = fopen("savedvalue.data", "w");
+                    fclose(pointer);
+                    pointer = fopen("C:/Users/shymo/GIT_inclass/in_class_assignment/NumberGuess/savedvalue.data", "w");
                     fprintf(pointer, "%d", newMax);
                     success++;
                 }
@@ -93,5 +94,6 @@ int main() {
     }
     while (option != 3); //quit
     printf("\nThanks for playing!");
+    fclose(pointer);
     return 0;
 }
