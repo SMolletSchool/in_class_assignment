@@ -16,3 +16,15 @@ pick between the four options with rand() (prefaced by srand((unsigned) time(&t)
 print the cost, tax amount, and tip amount
 print the total cost by doing the math in the print statement (no need to save the amount in a variable)
 */
+
+#include <stdio.h>
+#include <time.h>
+
+void main() {
+    float tax, tip;
+    time_t time;
+    printf("Enter tax percentage: ");
+    scanf("%f", &tax);
+    printf("\nEnter tip percentage: ");
+
+}
