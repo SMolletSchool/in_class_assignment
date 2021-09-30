@@ -57,30 +57,37 @@ int main() {
             do {
              printf("Guess the number! ");
                 scanf("%s", &buffer); //Guess is stored in buffer
-                if (buffer[0] == 'q') { //if the first character is q, quit
-                   return;
-              }
-              guess = atoi(buffer); //Convert to an int otherwise
-              printf("\nYour guess of %d is...", guess);
-              if (guess == randomNumber) { //correct guess?
-                  printf("correct!\n");
-             }
-              else {
-                 if (guess > randomNumber) printf("too high!\n"); //Guessed too high
-                 else printf("too low!\n"); //Guessed too low
+                if (buffer[0] != 'q') { //if the first character is q, quit
+                    guess = atoi(buffer); //Convert to an int otherwise
+                    printf("\nYour guess of %d is...", guess);
+                    if (guess == randomNumber) { //correct guess?
+                        printf("correct!\n");
+                    } 
+                else {
+                    if (guess > randomNumber) printf("too high!\n"); //Guessed too high
+                    else printf("too low!\n"); //Guessed too low
                 }
-            } while (guess != randomNumber);
+              }
+            } while (guess != randomNumber && buffer[0] != 'q');
         }
         else if (option == 2) {
             int newMax;
-            printf("");
-            scanf("%i", &newMax);
-            numberGuessMax = newMax;
+            int success = 0;
+            do {
+                printf("Enter a new maximum number. Keep it between 2 and %d, please! ", INT_MAX);
+                scanf("%i", &newMax);
+                if (newMax > 2 && newMax < INT_MAX) {
+                    numberGuessMax = newMax;
+                    success++;
+                }
+                else printf("\nInvalid input!\n");
+            } while (success == 0);
         }
         else if (option != 3 && option != 1 && option != 2){ //invalid input
             printf("Invalid input!\n\n");
         }
     }
     while (option != 3); //quit
+    printf("\nThanks for playing!");
     return 0;
 }
