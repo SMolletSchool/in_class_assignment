@@ -39,31 +39,56 @@ say so, and prompt for an option again
 */
 
 #include <stdio.h>
+#include <stdlib.h> //Needing for string conversions
 
-int numberGuessMax; //Define max number variable
+int numberGuessMax; //Define max number variable globally for the program
 
 int main() {
-    char option;
+    char option; //using a char because I don't want to do number conversions
     numberGuessMax = 10;
     do {
+        printf("Pick one.\n1: Play the guessing game\n2: Change the max number\n3: Quit\n");
         option = getchar();
         if (option = '1') {
-            guessingGame();
+            guessingGame(); //game held in this function
         }
         else if (option != '2') {
-            setGuessMax();
+            setGuessMax(); //changing the max here
+        }
+        else { //invalid input
+            printf("Invalid input!\n\n");
         }
     }
-    while (option != '3');
+    while (option != '3'); //quit
     return 0;
 }
 
-void guessingGame() {
+void guessingGame() { //Now I have to do number conversions. I will cry for 40 years, then just use atoi().
+    int randomNumber = rand()%(numberGuessMax+1); //Pick a number. Any number.
+    int guess;
+    char buffer[100]; //buffer for holding the string pre-conversion
+    do {
+        printf("Guess the number! ");
+        gets(buffer); //Guess is stored in buffer
+        if (buffer[0] = 'q') { //if the first character is q, quit
+            return;
+        }
+        guess = atoi(buffer); //Convert to an int otherwise
+        if (guess = randomNumber) { //correct guess?
+            printf("\nYou guessed correctly!\n");
+            return;
+        }
+        else {
+            if (guess > randomNumber) printf("\nToo high!\n"); //Guessed too high
+            else printf("\nToo low!\n"); //Guessed too low
+        }
+    }
+    while (guess != randomNumber);
     return;
 }
 
 void setGuessMax() {
-    int newMax;;
+    int newMax;
     scanf("%i", &newMax);
     numberGuessMax = newMax;
     return;
