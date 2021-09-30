@@ -49,34 +49,35 @@ int main() {
     do {
         printf("Pick one.\n1: Play the guessing game\n2: Change the max number\n3: Quit\n");
         scanf("%d", &option);
-        if (option = 1) {
+        printf("You picked %d\n", option);
+        if (option == 1) {
             int randomNumber = rand()%(numberGuessMax)+1; //Pick a number. Any number.
             int guess = 0; //Setting here to stop any silliness
             char buffer[100]; //buffer for holding the string pre-conversion
             do {
              printf("Guess the number! ");
                 scanf("%s", &buffer); //Guess is stored in buffer
-                /*if (buffer[0] = 'q') { //if the first character is q, quit
+                if (buffer[0] == 'q') { //if the first character is q, quit
                    return;
-              }*/
+              }
               guess = atoi(buffer); //Convert to an int otherwise
               printf("\nYour guess of %d is...", guess);
-              if (guess = randomNumber) { //correct guess?
+              if (guess == randomNumber) { //correct guess?
                   printf("correct!\n");
-                 return;
              }
               else {
                  if (guess > randomNumber) printf("too high!\n"); //Guessed too high
                  else printf("too low!\n"); //Guessed too low
                 }
-         } while (guess != randomNumber);
+            } while (guess != randomNumber);
         }
-        else if (option != 2) {
+        else if (option == 2) {
             int newMax;
+            printf("");
             scanf("%i", &newMax);
             numberGuessMax = newMax;
         }
-        else { //invalid input
+        else if (option != 3 && option != 1 && option != 2){ //invalid input
             printf("Invalid input!\n\n");
         }
     }
