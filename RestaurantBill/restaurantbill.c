@@ -21,11 +21,17 @@ print the total cost by doing the math in the print statement (no need to save t
 #include <time.h>
 
 void main() {
-    float tax, tip; //Declare variables
-    printf("Enter tax percentage: ");
-    scanf("%f", &tax); //Save float percentages if you want to do something like 1.0673487% for some reason beyond me
-    printf("\nEnter tip percentage: ");
-    scanf("%f", &tip); //Ditto
+    float tax = -1, tip = -1; //Declare variables
+    do {
+        printf("Enter tax percentage: ");
+        scanf("%f", &tax); //Save float percentages if you want to do something like 1.0673487% for some reason beyond me
+        if (tax < 0) printf("\nInvalid input! Try again.\n");
+    } while (tax < 0);
+    do {
+        printf("Enter tip percentage: ");
+        scanf("%f", &tip); //Save float percentages if you want to do something like 1.0673487% for some reason beyond me
+        if (tip < 0) printf("\nInvalid input! Try again.\n");
+    } while (tax < 0);
     printf("\n\n"); //Line breaks
     srand(time(0));
     int choice = rand()%4;
