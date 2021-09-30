@@ -41,11 +41,13 @@ say so, and prompt for an option again
 #include <stdio.h>
 #include <stdlib.h> //Needing for string conversions
 
-int numberGuessMax; //Define max number variable globally for the program
-
 int main() {
-    int option = 0; //switched to an int as I remembered that scanf exists
-    numberGuessMax = 10;
+    int numberGuessMax, option = 0; //switched to an int as I remembered that scanf exists
+    FILE *pointer; //File input for max number
+    pointer = fopen("NumberGuess/savedvalue.data", "r+");
+    char fileBuffer[10];
+    fscanf(pointer, "%s", fileBuffer);
+    numberGuessMax = atoi(fileBuffer);
     do {
         printf("Pick one.\n1: Play the guessing game\n2: Change the max number\n3: Quit\n");
         scanf("%d", &option);
@@ -53,9 +55,9 @@ int main() {
         if (option == 1) {
             int randomNumber = rand()%(numberGuessMax)+1; //Pick a number. Any number.
             int guess = 0; //Setting here to stop any silliness
-            char buffer[100]; //buffer for holding the string pre-conversion
+            char buffer[5]; //buffer for holding the string pre-conversion
             do {
-             printf("Guess the number! ");
+                printf("Guess the number! ");
                 scanf("%s", &buffer); //Guess is stored in buffer
                 if (buffer[0] != 'q') { //if the first character is q, quit
                     guess = atoi(buffer); //Convert to an int otherwise
@@ -78,6 +80,8 @@ int main() {
                 scanf("%i", &newMax);
                 if (newMax > 2 && newMax < INT_MAX) {
                     numberGuessMax = newMax;
+                    pointer = fopen("savedvalue.data", "w");
+                    fprintf(pointer, "%d", newMax);
                     success++;
                 }
                 else printf("\nInvalid input!\n");
