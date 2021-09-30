@@ -44,32 +44,32 @@ say so, and prompt for an option again
 int numberGuessMax; //Define max number variable globally for the program
 
 int main() {
-    char option; //using a char because I don't want to do number conversions
+    int option; //switched to an int as I remembered that scanf exists
     numberGuessMax = 10;
     do {
         printf("Pick one.\n1: Play the guessing game\n2: Change the max number\n3: Quit\n");
-        option = getchar();
-        if (option = '1') {
+        scanf("%i", &option);
+        if (option = 1) {
             guessingGame(); //game held in this function
         }
-        else if (option != '2') {
+        else if (option != 2) {
             setGuessMax(); //changing the max here
         }
         else { //invalid input
             printf("Invalid input!\n\n");
         }
     }
-    while (option != '3'); //quit
+    while (option != 3); //quit
     return 0;
 }
 
 void guessingGame() { //Now I have to do number conversions. I will cry for 40 years, then just use atoi().
-    int randomNumber = rand()%(numberGuessMax+1); //Pick a number. Any number.
-    int guess;
+    int randomNumber = rand()%(numberGuessMax)+1; //Pick a number. Any number.
+    int guess = 0; //Setting here to stop any silliness
     char buffer[100]; //buffer for holding the string pre-conversion
     do {
         printf("Guess the number! ");
-        gets(buffer); //Guess is stored in buffer
+        scanf("%s", &buffer); //Guess is stored in buffer
         if (buffer[0] = 'q') { //if the first character is q, quit
             return;
         }
